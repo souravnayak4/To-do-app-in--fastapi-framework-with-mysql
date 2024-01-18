@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', path='/admin/assets/media/image/favicon.png') }}"/>
+
+    <!-- Plugin styles -->
+    <link rel="stylesheet" href="{{ url_for('static', path='/admin/vendors/bundle.css') }}" type="text/css">
+
+        <!-- quill -->
+    <link href="{{ url_for('static', path='/admin/vendors/quill/quill.snow.css') }}" rel="stylesheet" type="text/css">
+
+    <!-- Clockpicker -->
+    <link rel="stylesheet" href="{{ url_for('static', path='/admin/vendors/clockpicker/bootstrap-clockpicker.min.css') }}" type="text/css">
+
+    <!-- Datepicker -->
+    <link rel="stylesheet" href="{{ url_for('static', path='/admin/vendors/datepicker/daterangepicker.css') }}" type="text/css">
+
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{ url_for('static', path='/admin/vendors/select2/css/select2.min.css') }}" type="text/css">
+
+    <!-- App styles -->
+    <link rel="stylesheet" href="{{ url_for('static', path='/admin/assets/css/app.min.css') }}" type="text/css">
+</head>
+<body  class="stretch-layout small-navigation" >
+
+
+
+    {% include 'include/admin/menu.html' %}
+    {% include 'include/admin/sidebar.html' %}
+
+    {% block content %}
+    
+    {% endblock %}
+
+    {% include 'include/admin/footer.html' %}
+
+
+<!-- Plugin scripts -->
+<script src="{{ url_for('static', path='/admin/vendors/bundle.js') }}"></script>
+
+
+<!-- Tagsinput -->
+<script src="{{ url_for('static', path='/admin/vendors/tagsinput/bootstrap-tagsinput.js') }}"></script>
+<script src="{{ url_for('static', path='/admin/assets/js/examples/tagsinput.js') }}"></script>
+
+<!-- quill -->
+<script src="{{ url_for('static', path='/admin/vendors/quill/quill.js') }}"></script>
+
+<!-- Clockpicker -->
+<script src="{{ url_for('static', path='/admin/vendors/clockpicker/bootstrap-clockpicker.min.js') }}"></script>
+<script src="{{ url_for('static', path='/admin/assets/js/examples/clockpicker.js') }}"></script>
+
+<!-- Select2 -->
+<script src="{{ url_for('static', path='/admin/vendors/select2/js/select2.min.js') }}"></script>
+<script src="{{ url_for('static', path='/admin/assets/js/examples/select2.js') }}"></script>
+
+<!-- Datepicker -->
+<script src="{{ url_for('static', path='/admin/vendors/datepicker/daterangepicker.js') }}"></script>
+<script src="{{ url_for('static', path='/admin/assets/js/examples/datepicker.js') }}"></script>
+
+<script>
+new Quill('.reply-email-quill-editor', {
+modules: {
+    toolbar: ".reply-email-quill-toolbar"
+},
+placeholder: "Type something... ",
+theme: "snow"
+});
+
+$(function () {
+$(document).on('click', '.app-block .app-content .app-action .action-left input[type="checkbox"]', function () {
+    $('.app-lists ul li input[type="checkbox"]').prop('checked', $(this).prop('checked'));
+    if ($(this).prop('checked')) {
+        $('.app-lists ul li input[type="checkbox"]').closest('li').addClass('active');
+    } else {
+        $('.app-lists ul li input[type="checkbox"]').closest('li').removeClass('active');
+    }
+});
+
+$(document).on('click', '.app-lists ul li input[type="checkbox"]', function () {
+    if ($(this).prop('checked')) {
+        $(this).closest('li').addClass('active');
+    } else {
+        $(this).closest('li').removeClass('active');
+    }
+});
+
+$(document).on('click', '.app-block .app-content .app-content-body .app-lists ul.list-group li.list-group-item', function (e) {
+    if (!$(e.target).is('.custom-control, .custom-control *, a, a *')) {
+        $('.app-detail').addClass('show').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function () {
+            $('.app-block .app-content .app-content-body .app-detail .app-detail-article').niceScroll().resize();
+        });
+    }
+});
+
+$(document).on('click', 'a.app-detail-close-button', function () {
+    $('.app-detail').removeClass('show');
+    return false;
+});
+
+$(document).on('click', '.app-sidebar-menu-button', function () {
+    $('.app-block .app-sidebar, .app-content-overlay').addClass('show');
+    // $('.app-block .app-sidebar .app-sidebar-menu').niceScroll().resize();
+    return false;
+});
+
+$(document).on('click', '.app-content-overlay', function () {
+    $('.app-block .app-sidebar, .app-content-overlay').removeClass('show');
+    return false;
+});
+
+$('.app-block .app-content .app-content-body .app-lists ul').sortable({
+    axis: "y",
+    cursor: "move",
+    handle: '.app-sortable-handle'
+}).disableSelection();
+});
+</script>
+
+
+<!-- App scripts -->
+<script src="{{ url_for('static', path='/admin/assets/js/app.min.js') }}"></script>
+
+</body>
+</html>    

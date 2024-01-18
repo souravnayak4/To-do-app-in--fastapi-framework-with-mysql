@@ -1,0 +1,152 @@
+
+<!-- END: Sidebar Group -->
+
+<!-- begin::main -->
+<div class="layout-wrapper">
+
+    <!-- begin::header -->
+    <div class="header d-print-none">
+
+        <div class="header-left">
+            <div class="navigation-toggler">
+                <a href="#" data-action="navigation-toggler">
+                    <i data-feather="menu"></i>
+                </a>
+            </div>
+            <div class="header-logo">
+               
+            </div>
+        </div>
+
+        <div class="header-body">
+            <div class="header-body-left">
+                <div class="page-title">
+                    <h4>Todo List</h4>
+                </div>
+            </div>
+            <div class="header-body-right">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                       
+                        <div class="dropdown-menu">
+                            
+                        </div>
+                    </li>
+
+                    <!-- begin::header fullscreen -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link" title="Fullscreen" data-toggle="fullscreen">
+                            <i class="maximize" data-feather="maximize"></i>
+                            <i class="minimize" data-feather="minimize"></i>
+                        </a>
+                    </li>
+                    <!-- end::header fullscreen -->
+
+                   
+
+                    <!-- begin::apps -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link" title="Apps" data-toggle="dropdown">
+                            <i data-feather="box"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
+                            <div class="bg-dark p-4 text-center d-flex justify-content-between">
+                                <h5 class="mb-0">Apps</h5>
+                            </div>
+                            <div class="p-3">
+                                <div class="row row-xs">
+                                    <div class="col-6">
+                                        <a href="chat.html">
+                                            <div class="border-radius-1 text-center mb-3">
+                                                <figure class="avatar avatar-lg border-0">
+                                                <span class="avatar-title bg-primary text-white rounded-circle">
+                                                    <i class="width-30 height-30" data-feather="message-circle"></i>
+                                                </span>
+                                                </figure>
+                                                <div class="mt-2">Chat</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <a href="mail.html">
+                                            <div class="border-radius-1 text-center mb-3">
+                                                <figure class="avatar avatar-lg border-0">
+                                                <span class="avatar-title bg-secondary text-white rounded-circle">
+                                                    <i class="width-30 height-30" data-feather="mail"></i>
+                                                </span>
+                                                </figure>
+                                                <div class="mt-2">Mail</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <a href="todo-list.html">
+                                            <div class="border-radius-1 text-center">
+                                                <figure class="avatar avatar-lg border-0">
+                                                <span class="avatar-title bg-info text-white rounded-circle">
+                                                    <i class="width-30 height-30" data-feather="check-circle"></i>
+                                                </span>
+                                                </figure>
+                                                <div class="mt-2">Todo List</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- end::apps -->
+
+                   
+                   
+
+                    <!-- begin::settings -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link" title="Settings" data-toggle="dropdown">
+                            <i data-feather="settings"></i>
+                        </a>
+                        
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
+                            <div class="bg-dark p-4 text-center d-flex justify-content-between">
+                                <h5 class="mb-0">Hello {{ user.get("first_name") }}{{ user.get("last_name") }} </h5>
+                            </div>
+                            
+                            <div class="p-3">
+                                <div class="row row-xs">
+                                    <div class="col-6">
+                                        {% if user %}
+                                        <a href="{{ url_for('authentication_logout') }}">
+                                            <div class="border-radius-1 text-center mb-3">
+                                                <div class="mt-2">Logout</div>
+                                            </div>
+                                        </a>
+                                        
+                                        {% endif %}
+                                    </div>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- end::settings -->
+
+                   
+                </ul>
+
+                <!-- begin::mobile header toggler -->
+                <ul class="navbar-nav d-flex align-items-center">
+                    <li class="nav-item header-toggler">
+                        <a href="#" class="nav-link">
+                            <i data-feather="arrow-down"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- end::mobile header toggler -->
+            </div>
+        </div>
+
+    </div>
+    <!-- end::header -->
